@@ -8,14 +8,14 @@ fake = Faker('pl_PL')
 
 
 # Podpunkt 1.
-'''
-Założenia:
-- Dane wejściowe: liczba rekordów
-- Wygenerowanie liczby numerów PESEL
-  odpowiadającej liczbie rekordów
-- Zwrócenie obiektu typu Series
-'''
 def generate_ssns(num):
+  '''
+  Założenia:
+  - Dane wejściowe: liczba rekordów
+  - Wygenerowanie liczby numerów PESEL
+    odpowiadającej liczbie rekordów
+  - Zwrócenie obiektu typu Series
+  '''
   lst = []
   for i in range(num):
     lst.append(fake.ssn())
@@ -27,18 +27,17 @@ def generate_ssns(num):
 
 
 # Podpunkt 2.
-'''
-Założenia:
-- Dane wejściowe: liczba rekordów, płeć(female: f, male: m),
-  data początkowa: YYYY-MM-DD, data końcowa: YYYY-MM-DD
-- Sprawdzenie poprawności wprowadzonych danych
-- Wygenerowanie liczby (odpowiadającej liczbie rekordów)
-  unikatowych numerów PESEL spełniających warunki wprowadzone
-  w parametrach wejściowych
-- Zwrócenie obiektu typu Series
-'''
 def generate_unique_ssns(*args):
-  ''' Generating specific and unique PESEL '''
+  '''
+  Założenia:
+  - Dane wejściowe: liczba rekordów, płeć(female: f, male: m),
+    data początkowa: YYYY-MM-DD, data końcowa: YYYY-MM-DD
+  - Sprawdzenie poprawności wprowadzonych danych
+  - Wygenerowanie liczby (odpowiadającej liczbie rekordów)
+    unikatowych numerów PESEL spełniających warunki wprowadzone
+    w parametrach wejściowych
+  - Zwrócenie obiektu typu Series
+  '''
   
   # Checking the correct number of arguments
   if len(args) != 4:
@@ -148,15 +147,15 @@ def pesel_to_date(pesel):
 
 
 # Podpunkt 3.
-'''
-Założenia:
-- Wywołanie funkcji generate_ssns z liczbą rekordów równą
-  1000, 10000, 100000 razy oraz wyświetlenie czasu ich wykonywania
-- Wywołanie funkcji generate_unique_ssns z liczbą rekordów równą
-  1000, 10000, 100000, wybraną płcią 'f', przedziałem daty urodzenia
-  od 1990-01-01 do 1990-01-19 oraz wyświetleniem czasu wykonywania
-'''
 def subsection_3():
+  '''
+  Założenia:
+  - Wywołanie funkcji generate_ssns z liczbą rekordów równą
+    1000, 10000, 100000 razy oraz wyświetlenie czasu ich wykonywania
+  - Wywołanie funkcji generate_unique_ssns z liczbą rekordów równą
+    1000, 10000, 100000, wybraną płcią 'f', przedziałem daty urodzenia
+    od 1990-01-01 do 1990-01-19 oraz wyświetleniem czasu wykonywania
+  '''
   
   num = [1000, 10000, 100000]
   
@@ -177,19 +176,19 @@ def subsection_3():
   
   
 # Podpunkt 4.
-'''
-Założenia:
-- Dane wejściowe: PESEL w postaci 11 cyfrowej,
-  płeć(female: f, male: m, any: a),
-  data:
-   1. Brak określonej daty: a
-   2. Konkretna data: YYYY-MM-DD
-   3. Przedział: od YYYY-MM-DD, do YYYY-MM-DD
-- Sprawdzenie poprawności wprowadzonych danych
-- Sprawdzenie czy wprowadzony PESEL spełnia założenia
-  z informacją zwrotną
-'''
 def validate_ssn(pesel, gender, *args):
+  '''
+  Założenia:
+  - Dane wejściowe: PESEL w postaci 11 cyfrowej,
+    płeć(female: f, male: m, any: a),
+    data:
+    1. Brak określonej daty: a
+    2. Konkretna data: YYYY-MM-DD
+    3. Przedział: od YYYY-MM-DD, do YYYY-MM-DD
+  - Sprawdzenie poprawności wprowadzonych danych
+  - Sprawdzenie czy wprowadzony PESEL spełnia założenia
+    z informacją zwrotną
+  '''
   
   # Checking the correct number of arguments
   if len(locals()) != 3:
